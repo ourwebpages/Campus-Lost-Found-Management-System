@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Leather wallet illustration">
+  <rect width="400" height="300" fill="#E8F0E9"/>
+  <circle cx="200" cy="150" r="98" fill="#F8F8F3"/>
+  <g fill="none" stroke="#174C3C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="100" y="110" width="200" height="112" rx="18"/>
+    <path d="M100 140h200"/>
+    <rect x="228" y="160" width="72" height="44" rx="12"/>
+    <circle cx="264" cy="182" r="7"/>
+  </g>
+</svg>

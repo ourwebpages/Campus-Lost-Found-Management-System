@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Student ID card illustration">
+  <rect width="400" height="300" fill="#E8F0E9"/>
+  <circle cx="200" cy="150" r="98" fill="#F8F8F3"/>
+  <g fill="none" stroke="#174C3C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="104" y="94" width="192" height="126" rx="16"/>
+    <circle cx="146" cy="140" r="18"/>
+    <path d="M124 184c4-14 12-22 22-22s18 8 22 22"/>
+    <path d="M196 130h68M196 154h68M196 178h44"/>
+  </g>
+</svg>

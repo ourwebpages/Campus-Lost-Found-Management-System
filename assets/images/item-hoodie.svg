@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Hooded sweatshirt illustration">
+  <rect width="400" height="300" fill="#E8F0E9"/>
+  <circle cx="200" cy="150" r="98" fill="#F8F8F3"/>
+  <g fill="none" stroke="#174C3C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M164 110l-42 22-18 54 34 14 10-24v76h104v-76l10 24 34-14-18-54-42-22"/>
+    <path d="M164 110c8 18 64 18 72 0"/>
+    <path d="M184 136v22M216 136v22"/>
+  </g>
+</svg>

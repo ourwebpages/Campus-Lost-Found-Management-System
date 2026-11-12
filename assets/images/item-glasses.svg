@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Reading glasses illustration">
+  <rect width="400" height="300" fill="#E8F0E9"/>
+  <circle cx="200" cy="150" r="98" fill="#F8F8F3"/>
+  <g fill="none" stroke="#174C3C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="156" cy="156" r="38"/>
+    <circle cx="248" cy="156" r="38"/>
+    <path d="M194 152c4-8 12-8 16 0"/>
+    <path d="M118 146l-18-14M286 146l18-14"/>
+  </g>
+</svg>
