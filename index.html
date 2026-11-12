@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Lost &amp; Found — Lovely Professional University</title>
+  <meta name="description" content="Campus Lost &amp; Found is the Lovely Professional University community board for reporting lost belongings, listing found items and arranging safe returns on campus.">
+  <meta name="theme-color" content="#174C3C">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================================================
+       MODULE 1 — NAVIGATION
+       ============================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-bar">
+      <a href="#home" class="brand" data-nav="home" aria-label="Campus Lost and Found, Lovely Professional University — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 8.5A9 9 0 0 0 5 7.2L3 9.5"/>
+            <path d="M3 4.5v5h5"/>
+            <path d="M3.5 15.5A9 9 0 0 0 19 16.8l2-2.3"/>
+            <path d="M21 19.5v-5h-5"/>
+            <circle cx="12" cy="12" r="2.4"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Campus Lost &amp; Found</span>
+          <span class="brand-sub">Lovely Professional University</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#browse" data-nav="browse" class="nav-link">Browse Items</a>
+        <a href="#myreports" data-nav="myreports" class="nav-link">My Reports</a>
+        <a href="#how-it-works" class="nav-link" data-scroll="how-it-works">How It Works</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-primary nav-cta" data-nav="report">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 5v14M5 12h14"/></svg>
+          Report an Item
+        </button>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav class="container mobile-menu-inner" aria-label="Mobile">
+        <a href="#browse" data-nav="browse">Browse Items</a>
+        <a href="#myreports" data-nav="myreports">My Reports</a>
+        <a href="#how-it-works" data-scroll="how-it-works">How It Works</a>
+        <a href="#privacy" data-scroll="privacy">Privacy &amp; Safety</a>
+        <a href="#admin" data-nav="admin">Administrator</a>
+        <button type="button" class="btn btn-primary" data-nav="report">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 5v14M5 12h14"/></svg>
+          Report an Item
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================================================
+         MODULE 2 — HOMEPAGE
+         ============================================================ -->
+    <div class="view" id="view-home">
+
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="m18.5 15 .9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9.9-2.4Z"/></svg>
+              Your Campus. Your Community.
+            </p>
+            <h1 id="hero-title">Lost it? Let&rsquo;s find it. <em>Together.</em></h1>
+            <p class="hero-lede">
+              One trusted board for everything misplaced on campus — from water bottles and ID cards
+              to keys and class notes. Browse what has been found, report what you have lost, and help
+              a belonging get back to its owner.
+            </p>
+
+            <form class="hero-search" id="hero-search" role="search" novalidate>
+              <label for="hero-search-input" class="sr-only">Search lost and found items</label>
+              <div class="hero-search-field">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+                <input type="search" id="hero-search-input" name="keyword" placeholder="Search a bottle, ID card, keys&hellip;" autocomplete="off">
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Search
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </form>
+
+            <div class="hero-actions">
+              <button type="button" class="btn btn-ghost" data-nav="browse" data-tab="found">Browse found items</button>
+              <button type="button" class="btn btn-ghost" data-nav="report" data-type="lost">Report a lost item</button>
+            </div>
+
+            <p class="hero-note">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 22s8-3.6 8-10V5.5L12 2.5 4 5.5V12c0 6.4 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+              Contact details stay private. Only your campus email receives claims.
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-frame">
+              <img src="Images/hero_home(576x510).png" alt="Two students handing a bottle back to its owner on a campus lawn" width="576" height="510" fetchpriority="high">
+            </div>
+            <div class="hero-float">
+              <span class="hero-float-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.3-7-9.3A4.2 4.2 0 0 1 12 7.8 4.2 4.2 0 0 1 19 10.7c0 5-7 9.3-7 9.3Z"/></svg>
+              </span>
+              <div>
+                <strong data-stat="returned-float">0</strong> items safely returned
+                <span>and counting, one kind student at a time.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live statistics -->
+        <div class="container">
+          <dl class="stat-strip" aria-label="Campus lost and found statistics">
+            <div class="stat">
+              <dt>Lost items reported</dt>
+              <dd id="stat-lost">0</dd>
+            </div>
+            <div class="stat">
+              <dt>Found items reported</dt>
+              <dd id="stat-found">0</dd>
+            </div>
+            <div class="stat">
+              <dt>Successfully returned</dt>
+              <dd id="stat-returned">0</dd>
+            </div>
+            <div class="stat stat--note">
+              <dt>How this works</dt>
+              <dd>Every listing is stored in this browser only — a class demonstration, not a live campus service.</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Category shortcuts -->
+      <section class="section" id="categories" aria-labelledby="categories-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-eyebrow">Browse by category</p>
+            <h2 id="categories-title">Start where it usually happens</h2>
+            <p class="section-lede">The five categories students search most, plus everything that does not quite fit.</p>
+          </div>
+          <div class="category-grid" id="category-shortcuts"><!-- rendered by script.js --></div>
+        </div>
+      </section>
+
+      <!-- Recently reported -->
+      <section class="section section--tint" id="recent" aria-labelledby="recent-title">
+        <div class="container">
+          <div class="section-head section-head--row">
+            <div>
+              <p class="section-eyebrow">Fresh on the board</p>
+              <h2 id="recent-title">Recently reported items</h2>
+            </div>
+            <button type="button" class="btn btn-outline" data-nav="browse">
+              Browse all items
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+          <div class="item-grid" id="recent-grid"><!-- rendered by script.js --></div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section" id="how-it-works" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-eyebrow">How it works</p>
+            <h2 id="how-title">Three calm steps to a safe return</h2>
+            <p class="section-lede">No accounts, no spam, no public phone numbers. Just a clear path from &ldquo;missing&rdquo; to &ldquo;mine again&rdquo;.</p>
+          </div>
+
+          <ol class="steps">
+            <li class="step">
+              <span class="step-number">01</span>
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+              </span>
+              <h3>Look for a match</h3>
+              <p>Switch between lost and found, then narrow the board by category, campus location or keyword.</p>
+            </li>
+            <li class="step">
+              <span class="step-number">02</span>
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+              </span>
+              <h3>Share a few details</h3>
+              <p>Describe the item, where it was lost or found, and add an optional photo. Contact details are never listed publicly.</p>
+            </li>
+            <li class="step">
+              <span class="step-number">03</span>
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m11 17 2 2a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8l-2-2"/><path d="m13 7-2-2a2 2 0 0 0-2.8 0L4 9.2a2 2 0 0 0 0 2.8l2 2"/><path d="m9 12 6 0"/></svg>
+              </span>
+              <h3>Arrange a safe return</h3>
+              <p>Submit a claim with a detail only the owner would know, then meet in a busy, well-lit campus spot.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Privacy and safety -->
+      <section class="section section--tint" id="privacy" aria-labelledby="privacy-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="section-eyebrow">Privacy &amp; safety</p>
+            <h2 id="privacy-title">Care for the person, not just the item</h2>
+            <p class="section-lede">A found item is someone&rsquo;s bad day. These habits keep every handover kind and safe.</p>
+          </div>
+
+          <div class="safety-grid">
+            <article class="safety-card">
+              <span class="safety-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              </span>
+              <h3>Keep personal details private</h3>
+              <p>Campus emails are used only to match a report with its claims. Never post phone numbers, room numbers or ID photos on a listing.</p>
+            </article>
+            <article class="safety-card">
+              <span class="safety-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+              </span>
+              <h3>Confirm it belongs to you</h3>
+              <p>Ask claimants for a detail nobody could guess — a scratch, a sticker, what is inside the wallet. Scratched serial numbers are perfect.</p>
+            </article>
+            <article class="safety-card">
+              <span class="safety-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21s7-3.6 7-9V5.5L12 2.5 5 5.5V12c0 5.4 7 9 7 9Z"/></svg>
+              </span>
+              <h3>Meet somewhere safe</h3>
+              <p>Choose the library entrance, Uni Mall or the Student Welfare office during daylight hours. Bring a friend for high-value items.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-layout">
+          <div class="faq-intro">
+            <p class="section-eyebrow">Questions</p>
+            <h2 id="faq-title">Everything students ask us</h2>
+            <p class="section-lede">Still unsure about something? The Student Welfare desk can help you with a physical handover.</p>
+          </div>
+
+          <div class="faq-list" id="faq-list">
+            <div class="faq-item">
+              <h3>
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+                  How do I report a lost item?
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>
+                <p>Choose <strong>Report an Item</strong>, select <em>I lost something</em>, then add the item name, category, the location where you last saw it, the date and your campus email. Add a photo if you have one, then publish. Your report appears immediately under <strong>Lost Items</strong>.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3>
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                  Someone found my item. What happens next?
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+                <p>Open the found listing and choose <strong>Claim This Item</strong>. Describe a detail only the owner would know and submit. A claim ID is generated in this browser and its status starts at <em>Pending Verification</em>. In this academic demo the review is simulated — arrange the handover with the finder yourself.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3>
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                  Is my contact information visible to everyone?
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+                <p>No. Public cards and item details show only the item, category, location, date, report ID and status. Your email is used solely to match reports and claims inside <strong>My Reports</strong>.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3>
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                  Where is my data stored?
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
+                <p>Everything lives in this browser&rsquo;s LocalStorage on this device. There is no server, account or synchronisation, so another student on another laptop cannot see your reports. Clearing site data or using a different browser removes them. You can reset the demo from the footer at any time.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <h3>
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+                  Can I edit or remove a report later?
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
+                <p>Open <strong>My Reports</strong>, enter the same campus email you used, and your lost reports, found reports and claims appear. Reports you created can be deleted after a confirmation step. The seeded demonstration examples cannot be deleted.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing call to action -->
+      <section class="section" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="cta-band">
+            <div>
+              <h2 id="cta-title">Every item has a way back home.</h2>
+              <p>Spotted a lonely water bottle on a library table? Two minutes of your time can fix someone&rsquo;s whole week.</p>
+            </div>
+            <div class="cta-actions">
+              <button type="button" class="btn btn-light" data-nav="report" data-type="found">Report a found item</button>
+              <button type="button" class="btn btn-outline-light" data-nav="browse">Browse the board</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================================
+         MODULE 3 — BROWSE ITEMS
+         ============================================================ -->
+    <div class="view" id="view-browse" hidden>
+      <div class="container page-head">
+        <button type="button" class="back-link" data-nav="home">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          Back to home
+        </button>
+        <h1>Campus board</h1>
+        <p>Search every lost and found report on this device. Filters combine, so you can look for &ldquo;keys&rdquo; in &ldquo;Uni Mall&rdquo; only.</p>
+      </div>
+
+      <div class="container">
+        <div class="board-tabs" role="tablist" aria-label="Item type">
+          <button type="button" class="board-tab is-active" role="tab" id="tab-lost" data-tab="lost" aria-selected="true" aria-controls="browse-grid">
+            Lost Items <span class="tab-count" data-tab-count="lost">0</span>
+          </button>
+          <button type="button" class="board-tab" role="tab" id="tab-found" data-tab="found" aria-selected="false" aria-controls="browse-grid">
+            Found Items <span class="tab-count" data-tab-count="found">0</span>
+          </button>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter items">
+          <div class="field field--search">
+            <label for="filter-search" class="sr-only">Search by keyword</label>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon field-icon"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+            <input type="search" id="filter-search" placeholder="Search by item or description" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="filter-category" class="sr-only">Filter by category</label>
+            <select id="filter-category">
+              <option value="all">All categories</option>
+              <option value="Electronics">Electronics</option>
+              <option value="ID Cards">ID Cards</option>
+              <option value="Books/Notes">Books/Notes</option>
+              <option value="Keys">Keys</option>
+              <option value="Personal Accessories">Personal Accessories</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="filter-location" class="sr-only">Filter by campus location</label>
+            <select id="filter-location">
+              <option value="all">All locations</option>
+              <option value="Uni Mall">Uni Mall</option>
+              <option value="Main Library">Main Library</option>
+              <option value="Student Welfare">Student Welfare</option>
+              <option value="Science Hall">Science Hall</option>
+              <option value="Recreation Center">Recreation Center</option>
+              <option value="Arts Building">Arts Building</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn-outline" id="clear-filters">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            Clear filters
+          </button>
+        </div>
+
+        <p class="result-count" id="browse-count" role="status" aria-live="polite"></p>
+
+        <div class="item-grid" id="browse-grid" role="tabpanel" aria-labelledby="tab-lost"></div>
+
+        <div class="empty-state" id="browse-empty" hidden>
+          <span class="empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6M8 11h6"/></svg>
+          </span>
+          <h3 id="browse-empty-title">No items match this search</h3>
+          <p id="browse-empty-text">Try a shorter keyword, a different category, or clear your filters.</p>
+          <button type="button" class="btn btn-primary" id="empty-clear">Clear all filters</button>
+        </div>
+
+        <div class="board-foot">
+          <p>Looking for something that is not here yet? <button type="button" class="link-button" data-nav="report" data-type="lost">Post a lost report</button> so finders know to look for it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MODULE 5 — REPORT AN ITEM
+         ============================================================ -->
+    <div class="view" id="view-report" hidden>
+      <div class="container page-head">
+        <button type="button" class="back-link" data-nav="browse">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          Back to the board
+        </button>
+        <h1>Let&rsquo;s get it back home.</h1>
+        <p>A few details can make someone&rsquo;s day. What would you like to report? Fields marked with an asterisk are required.</p>
+      </div>
+
+      <div class="container report-layout">
+        <form class="report-form" id="report-form" novalidate>
+          <div id="report-form-body">
+            <fieldset class="type-switch">
+              <legend class="sr-only">What kind of report is this?</legend>
+              <button type="button" class="type-option is-active" data-type="lost" aria-pressed="true">
+                <span class="type-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+                </span>
+                <span>
+                  <strong>I lost something</strong>
+                  <small>Tell the campus what to look for</small>
+                </span>
+              </button>
+              <button type="button" class="type-option" data-type="found" aria-pressed="false">
+                <span class="type-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+                </span>
+                <span>
+                  <strong>I found something</strong>
+                  <small>Help an owner get it back</small>
+                </span>
+              </button>
+            </fieldset>
+
+            <div class="form-section">
+              <h2 class="form-section-title">The item</h2>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="report-item-name">Item name <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="report-item-name" name="itemName" maxlength="100" placeholder="e.g. Blue Milton water bottle" autocomplete="off" required>
+                  <p class="field-hint">Be specific — brand, colour and size help.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="report-category">Category <span class="req" aria-hidden="true">*</span></label>
+                  <select id="report-category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="ID Cards">ID Cards</option>
+                    <option value="Books/Notes">Books/Notes</option>
+                    <option value="Keys">Keys</option>
+                    <option value="Personal Accessories">Personal Accessories</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="report-location" id="report-location-label">Location last seen <span class="req" aria-hidden="true">*</span></label>
+                  <select id="report-location" name="location" required>
+                    <option value="">Select a campus location</option>
+                    <option value="Uni Mall">Uni Mall</option>
+                    <option value="Main Library">Main Library</option>
+                    <option value="Student Welfare">Student Welfare</option>
+                    <option value="Science Hall">Science Hall</option>
+                    <option value="Recreation Center">Recreation Center</option>
+                    <option value="Arts Building">Arts Building</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="report-spot">Specific spot <span class="optional">(optional)</span></label>
+                  <input type="text" id="report-spot" name="specificSpot" maxlength="80" placeholder="e.g. Second floor reading area" autocomplete="off">
+                </div>
+
+                <div class="form-field">
+                  <label for="report-date">Date <span class="req" aria-hidden="true">*</span></label>
+                  <input type="date" id="report-date" name="itemDate" required>
+                  <p class="field-hint">Today or earlier.</p>
+                </div>
+
+                <div class="form-field form-field--full">
+                  <label for="report-description">Description <span class="optional">(optional)</span></label>
+                  <textarea id="report-description" name="description" rows="4" maxlength="500" placeholder="Distinguishing marks, contents, stickers, engraving — anything that would help identify it."></textarea>
+                  <p class="field-hint"><span id="description-count">0</span>/500 characters</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="form-section-title">A photo <span class="optional">(optional)</span></h2>
+              <div class="upload-zone" id="upload-zone">
+                <input type="file" id="report-image" name="image" accept="image/jpeg,image/png" class="sr-only">
+                <div class="upload-empty" id="upload-empty">
+                  <span class="upload-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>
+                  </span>
+                  <p><strong>Drop an image here</strong> or <span class="upload-browse">browse your files</span></p>
+                  <p class="upload-hint">JPG or PNG, up to 5 MB. Images are resized and kept on this device only.</p>
+                </div>
+                <div class="upload-preview" id="upload-preview" hidden>
+                  <img id="preview-image" alt="Preview of the selected item photo">
+                  <div class="upload-preview-meta">
+                    <p id="preview-name">photo.jpg</p>
+                    <button type="button" class="btn btn-ghost btn-small" id="remove-image">Remove photo</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="form-section-title">How can we reach you?</h2>
+              <p class="form-note">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                Your email is never shown on the public board. It only links reports and claims to you in My Reports.
+              </p>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="report-name">Your name <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="report-name" name="reporterName" maxlength="80" placeholder="Full name" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                  <label for="report-email">Campus email <span class="req" aria-hidden="true">*</span></label>
+                  <input type="email" id="report-email" name="contactEmail" placeholder="your.name@lpu.in" autocomplete="email" required>
+                  <p class="field-hint">Use the same email in My Reports to find this record.</p>
+                </div>
+                <div class="form-field">
+                  <label for="report-phone">Phone <span class="optional">(optional)</span></label>
+                  <input type="tel" id="report-phone" name="contactPhone" maxlength="20" placeholder="+91 00000 00000" autocomplete="tel">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" id="save-draft">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+                Save as draft
+              </button>
+              <button type="submit" class="btn btn-primary btn-large">
+                Publish report
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="report-success" id="report-success" hidden>
+            <span class="success-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></svg>
+            </span>
+            <h2>Report published</h2>
+            <p>Your item is now on the campus board. Share the reference if you need to follow up with the welfare desk.</p>
+            <p class="success-id">Report ID <strong id="report-success-id">—</strong></p>
+            <p class="success-note">This demonstration stores the report in this browser only. No email notification is sent.</p>
+            <div class="success-actions">
+              <button type="button" class="btn btn-primary" id="view-published">View on the board</button>
+              <button type="button" class="btn btn-outline" id="report-another">Report another item</button>
+            </div>
+          </div>
+        </form>
+
+        <aside class="report-aside" aria-label="Reporting tips">
+          <div class="aside-card">
+            <h2>What makes a good report</h2>
+            <ul class="tick-list">
+              <li>Name the item the way a friend would describe it.</li>
+              <li>Pick the closest campus location, then add the exact spot.</li>
+              <li>Mention one detail a genuine owner would recognise.</li>
+              <li>Add a photo with a plain background if you can.</li>
+            </ul>
+          </div>
+          <div class="aside-card aside-card--sage">
+            <h2>Privacy reminder</h2>
+            <p>Never include ID numbers, bank details or photos of documents. This board is a class demonstration and LocalStorage is not encrypted.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MODULE 7 — MY REPORTS
+         ============================================================ -->
+    <div class="view" id="view-myreports" hidden>
+      <div class="container page-head">
+        <button type="button" class="back-link" data-nav="home">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          Back to home
+        </button>
+        <h1>My reports</h1>
+        <p>Enter the campus email you used when reporting to see your lost items, found items and claims.</p>
+      </div>
+
+      <div class="container">
+        <form class="lookup" id="myreports-form" novalidate>
+          <div class="field field--grow">
+            <label for="myreports-email">Campus email</label>
+            <input type="email" id="myreports-email" placeholder="your.name@lpu.in" autocomplete="email">
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+            Load my reports
+          </button>
+        </form>
+        <p class="lookup-note">This is not a login. Anyone with access to this browser can read the stored demonstration data.</p>
+
+        <div id="myreports-results" hidden>
+          <div class="profile-strip">
+            <div>
+              <span class="profile-label">Showing records for</span>
+              <strong id="myreports-email-display">—</strong>
+            </div>
+            <button type="button" class="link-button" id="myreports-switch">Use a different email</button>
+          </div>
+
+          <div class="board-tabs board-tabs--compact" role="tablist" aria-label="Report type">
+            <button type="button" class="board-tab is-active" role="tab" id="mtab-lost" data-mtab="lost" aria-selected="true" aria-controls="myreports-panel">
+              Lost <span class="tab-count" data-mtab-count="lost">0</span>
+            </button>
+            <button type="button" class="board-tab" role="tab" id="mtab-found" data-mtab="found" aria-selected="false" aria-controls="myreports-panel">
+              Found <span class="tab-count" data-mtab-count="found">0</span>
+            </button>
+            <button type="button" class="board-tab" role="tab" id="mtab-claims" data-mtab="claims" aria-selected="false" aria-controls="myreports-panel">
+              Claims <span class="tab-count" data-mtab-count="claims">0</span>
+            </button>
+          </div>
+
+          <div class="record-list" id="myreports-list" role="tabpanel" aria-labelledby="mtab-lost"></div>
+
+          <div class="empty-state" id="myreports-empty" hidden>
+            <span class="empty-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/></svg>
+            </span>
+            <h3 id="myreports-empty-title">No reports yet</h3>
+            <p id="myreports-empty-text">Nothing has been filed with this email address.</p>
+            <button type="button" class="btn btn-primary" data-nav="report">Report an item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         ADMINISTRATOR — sign in and management workspace
+         (Simulated client-side gate for the academic demonstration)
+         ============================================================ -->
+    <div class="view" id="view-admin" hidden>
+
+      <!-- Sign in -->
+      <div class="admin-login" id="admin-login">
+        <div class="container admin-login-grid">
+          <section class="admin-intro" aria-labelledby="admin-intro-title">
+            <p class="admin-pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 21s7-3.6 7-9V5.5L12 2.5 5 5.5V12c0 5.4 7 9 7 9Z"/><path d="m9 11.5 2 2 4-4"/></svg>
+              Administrator access
+            </p>
+            <h1 id="admin-intro-title">A little care.<br>A safer campus.</h1>
+            <p class="admin-intro-lede">Help belongings find their way home. Keep every report accurate, respectful, and ready for the campus community.</p>
+
+            <ol class="admin-points">
+              <li>
+                <span class="admin-point-number">01</span>
+                <div><strong>Review with care</strong><p>Check reports before they reach the community.</p></div>
+              </li>
+              <li>
+                <span class="admin-point-number">02</span>
+                <div><strong>Protect private details</strong><p>Keep ownership clues and personal information safe.</p></div>
+              </li>
+              <li>
+                <span class="admin-point-number">03</span>
+                <div><strong>Bring things full circle</strong><p>Manage listings and support safe handoffs.</p></div>
+              </li>
+            </ol>
+
+            <p class="admin-intro-foot">For the people who look after our campus.</p>
+          </section>
+
+          <section class="admin-signin" aria-labelledby="admin-signin-title">
+            <p class="admin-signin-eyebrow">Welcome back</p>
+            <h2 id="admin-signin-title">Administrator sign in</h2>
+            <p class="admin-signin-lede">Enter your staff credentials to manage campus reports.</p>
+
+            <form id="admin-login-form" novalidate>
+              <div class="form-field">
+                <label for="admin-username">Username</label>
+                <input type="text" id="admin-username" name="username" placeholder="Enter your staff username" autocomplete="username" required>
+                <p class="field-hint">Use the demonstration credentials provided for this project.</p>
+              </div>
+
+              <div class="form-field">
+                <div class="admin-label-row">
+                  <label for="admin-password">Password</label>
+                  <button type="button" class="link-button admin-show" id="admin-password-toggle" aria-pressed="false">Show</button>
+                </div>
+                <input type="password" id="admin-password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+              </div>
+
+              <p class="field-error admin-login-error" id="admin-login-error" role="alert" hidden></p>
+
+              <button type="submit" class="btn btn-primary btn-large admin-submit">
+                Sign in to administrator workspace
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </form>
+
+            <div class="admin-demo">
+              <span>Demo credentials</span>
+              <code>admin</code> / <code>lpu326</code>
+            </div>
+
+            <div class="admin-callout">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 21s7-3.6 7-9V5.5L12 2.5 5 5.5V12c0 5.4 7 9 7 9Z"/><path d="m9 11.5 2 2 4-4"/></svg>
+              <p><strong>Authorized staff only.</strong> Student or visitor? <button type="button" class="link-button" data-nav="browse">Browse lost &amp; found</button> on the campus site instead.</p>
+            </div>
+
+            <p class="admin-signin-foot">Sign-in is simulated for this project. <button type="button" class="link-button" data-nav="home">Return to the campus site</button></p>
+          </section>
+        </div>
+
+        <div class="container admin-login-foot">
+          <p>Lovely Professional University &middot; Student Services</p>
+          <p>Need access? Contact university IT</p>
+        </div>
+      </div>
+
+      <!-- Management workspace -->
+      <div class="admin-dash" id="admin-dash" hidden>
+        <div class="admin-bar">
+          <div class="container admin-bar-inner">
+            <button type="button" class="admin-back" data-nav="home">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              Back to campus site
+            </button>
+            <span class="admin-badge">Administrator</span>
+            <button type="button" class="admin-signout" id="admin-signout">Sign out</button>
+          </div>
+        </div>
+
+        <div class="container admin-body">
+          <header class="admin-head">
+            <div>
+              <p class="section-eyebrow">Workspace</p>
+              <h1>Report management</h1>
+              <p>Review reports, verify claims and keep the board accurate. Changes save to this browser immediately.</p>
+            </div>
+            <button type="button" class="btn btn-outline" id="admin-reset">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              Reset demo data
+            </button>
+          </header>
+
+          <dl class="admin-stats" id="admin-stats" aria-label="Board statistics"></dl>
+
+          <div class="admin-toolbar">
+            <div class="board-tabs board-tabs--compact" role="tablist" aria-label="Admin sections">
+              <button type="button" class="board-tab is-active" role="tab" id="atab-reports" data-atab="reports" aria-selected="true" aria-controls="admin-list">
+                Reports <span class="tab-count" data-acount="reports">0</span>
+              </button>
+              <button type="button" class="board-tab" role="tab" id="atab-claims" data-atab="claims" aria-selected="false" aria-controls="admin-list">
+                Claim requests <span class="tab-count" data-acount="claims">0</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-filters" id="admin-filters">
+            <div class="field field--search">
+              <label for="admin-search" class="sr-only">Search reports</label>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon field-icon"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+              <input type="search" id="admin-search" placeholder="Search by item, ID or email" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="admin-status" class="sr-only">Filter by status</label>
+              <select id="admin-status">
+                <option value="all">All statuses</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="admin-type" class="sr-only">Filter by type</label>
+              <select id="admin-type">
+                <option value="all">Lost and found</option>
+                <option value="lost">Lost only</option>
+                <option value="found">Found only</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="admin-count" id="admin-count" role="status" aria-live="polite"></p>
+          <div class="admin-list" id="admin-list"></div>
+
+          <div class="empty-state" id="admin-empty" hidden>
+            <span class="empty-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/></svg>
+            </span>
+            <h3 id="admin-empty-title">Nothing to review</h3>
+            <p id="admin-empty-text">No records match these filters.</p>
+          </div>
+
+          <p class="admin-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 21s7-3.6 7-9V5.5L12 2.5 5 5.5V12c0 5.4 7 9 7 9Z"/><path d="m9 11.5 2 2 4-4"/></svg>
+            Demonstration workspace: there is no server, staff directory or real authentication. Anyone with access to this browser profile could open it.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       MODULE 10 — FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand brand--footer" data-nav="home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.5 8.5A9 9 0 0 0 5 7.2L3 9.5"/>
+              <path d="M3 4.5v5h5"/>
+              <path d="M3.5 15.5A9 9 0 0 0 19 16.8l2-2.3"/>
+              <path d="M21 19.5v-5h-5"/>
+              <circle cx="12" cy="12" r="2.4"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-name">Campus Lost &amp; Found</span>
+            <span class="brand-sub">Lovely Professional University</span>
+          </span>
+        </a>
+        <p class="footer-tagline">Your Campus. Your Community.<br>A student project for CSE-326, built with HTML, CSS and vanilla JavaScript.</p>
+        <button type="button" class="footer-reset" id="reset-data">Reset demonstration data</button>
+      </div>
+
+      <nav class="footer-col" aria-label="Board">
+        <h2>Board</h2>
+        <ul>
+          <li><a href="#browse" data-nav="browse">Browse lost items</a></li>
+          <li><a href="#browse" data-nav="browse" data-tab="found">Browse found items</a></li>
+          <li><a href="#report" data-nav="report">Report an item</a></li>
+          <li><a href="#myreports" data-nav="myreports">My reports</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Support">
+        <h2>Support</h2>
+        <ul>
+          <li><a href="#how-it-works" data-scroll="how-it-works">How it works</a></li>
+          <li><a href="#privacy" data-scroll="privacy">Privacy &amp; safety</a></li>
+          <li><a href="#faq" data-scroll="faq">FAQ</a></li>
+          <li><a href="#categories" data-scroll="categories">Categories</a></li>
+          <li><a href="#admin" data-nav="admin">Administrator</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h2>Campus desk</h2>
+        <p>Student Welfare Office<br>Lovely Professional University<br>Phagwara, Punjab</p>
+        <p class="footer-disclaimer">Contact details are demonstration content and are not an official institutional channel.</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="footer-year">2026</span> Campus Lost &amp; Found &middot; Lovely Professional University</p>
+      <p>Browser-only demonstration &middot; No accounts, no server, no email notifications</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODULE 4 — ITEM DETAILS DIALOG
+       ============================================================ -->
+  <div class="modal" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden>
+    <div class="modal-backdrop" data-close="detail-modal"></div>
+    <div class="modal-panel modal-panel--wide" role="document">
+      <button type="button" class="modal-close" data-close="detail-modal" aria-label="Close item details">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="detail-grid">
+        <div class="detail-media">
+          <img id="detail-image" alt="">
+        </div>
+        <div class="detail-body" id="detail-body"><!-- rendered by script.js --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODULE 6 — CLAIM DIALOG
+       ============================================================ -->
+  <div class="modal" id="claim-modal" role="dialog" aria-modal="true" aria-labelledby="claim-title" hidden>
+    <div class="modal-backdrop" data-close="claim-modal"></div>
+    <div class="modal-panel" role="document">
+      <button type="button" class="modal-close" data-close="claim-modal" aria-label="Close claim form">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <h2 id="claim-title">Claim this item</h2>
+      <p class="modal-lede">Tell us something only the owner would know. The finder reviews claims; verification in this demonstration is simulated.</p>
+
+      <form id="claim-form" novalidate>
+        <input type="hidden" id="claim-item-id" name="itemId" value="">
+        <p class="claim-item-line">Claiming: <strong id="claim-item-name">—</strong></p>
+
+        <div class="form-field">
+          <label for="claim-name">Your name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="claim-name" name="claimantName" maxlength="80" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="claim-email">Campus email <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="claim-email" name="claimantEmail" placeholder="your.name@lpu.in" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="claim-detail">How can you identify it? <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="claim-detail" name="identifyingDetail" rows="3" maxlength="300" placeholder="A scratch, a sticker, what is inside, an engraving&hellip;" required></textarea>
+        </div>
+        <div class="form-field">
+          <label for="claim-proof">Anything else to add? <span class="optional">(optional)</span></label>
+          <textarea id="claim-proof" name="proofDescription" rows="2" maxlength="300" placeholder="When you lost it, or extra proof you can show at the handover."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" data-close="claim-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit claim</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       DELETE CONFIRMATION DIALOG
+       ============================================================ -->
+  <div class="modal" id="delete-modal" role="dialog" aria-modal="true" aria-labelledby="delete-title" hidden>
+    <div class="modal-backdrop" data-close="delete-modal"></div>
+    <div class="modal-panel modal-panel--small" role="document">
+      <h2 id="delete-title">Delete this report?</h2>
+      <p class="modal-lede">The listing and any claims linked to it are removed from this browser. Seeded examples are kept, and this cannot be undone.</p>
+      <p class="delete-target" id="delete-target">—</p>
+      <div class="form-actions">
+        <button type="button" class="btn btn-ghost" data-close="delete-modal">Keep report</button>
+        <button type="button" class="btn btn-danger" id="confirm-delete">Delete report</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast region -->
+  <div class="toast-stack" id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

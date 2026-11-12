@@ -1,0 +1,252 @@
+
+PROJECT NO. 02  /  LOVELY PROFESSIONAL UNIVERSITY
+Campus Lost & Found
+Product Requirements Document (PRD)
+
+Document
+Product Requirements Document
+Project
+Campus Lost and Found Management System
+Version
+1.0
+Prepared
+12 November 2026
+Implementation constraint
+HTML5, CSS3, Vanilla JavaScript only; no libraries or backend
+Primary source
+Web-Projects-List - K2P26LP.xlsx, Project No. 2
+Design reference
+Group 1.pdf, page 1 visual reference sheet
+
+Document intent
+This document translates the assigned project brief and its visual reference into a buildable, testable frontend project. It separates the assignment’s explicit requirements from recommended interface enhancements and records the limits of a browser-only demonstration.
+
+1. Executive Summary
+Campus Lost and Found is a responsive, browser-based campus board where students can browse lost and found belongings, publish an item report, and submit a claim request for a found item. The goal is to replace fragmented word-of-mouth or informal reporting with one clear, searchable interface.
+The assigned solution is an interactive frontend and must not rely on backend services. For this project, reports and claim requests are stored in the browser using LocalStorage. This supports a functional demonstration on one browser profile; it does not provide shared campus-wide data, secure accounts, email delivery, or real verification.
+2. Source Basis and Requirement Classification
+Source
+What it establishes
+How this PRD uses it
+Excel project list, row 2: Campus Lost and Found Management System
+Problem statement, project objective, and four explicit core functional requirements.
+Authoritative source for mandatory scope and acceptance criteria.
+Group 1.pdf, page 1 visual reference sheet
+Visual examples of browse tabs, filters, report form, item details, claim form, My Reports, process explanation, privacy content, FAQ, and mobile layouts.
+Design and experience reference. Additional screens are treated as recommended enhancements, not extra assignment-mandated requirements.
+Implementation constraints supplied in the project brief
+Use HTML, CSS, and JavaScript only; no libraries or backend.
+Technology and deployment boundary for both PRD and technical specification.
+
+Classification rule  Requirements marked CORE are explicitly required by the Excel project specification. Requirements marked REFERENCE-ALIGNED are enhancements inferred from the Group 1 PDF and are included to make the demonstrator complete.
+
+3. Product Context
+3.1 Problem Statement
+Students frequently lose water bottles, ID cards, calculators, notebooks, and other belongings on campus. There is no central place to check found belongings or report lost items. The project proposes a lost-and-found board where students can publish lost-item reports, browse found items with category tags, and submit claim requests.
+3.2 Product Objective
+Develop a responsive, interactive frontend application that helps users manage or access a campus lost-and-found system.
+3.3 Product Principles
+Findability first: make search, item type tabs, categories, and campus location easy to see and use.
+Low-friction reporting: collect the required details in a short and clearly validated form.
+Privacy-aware presentation: do not show contact details on public item cards or detail listings.
+Trust through clarity: show item type, status, location, date, and what the next step is.
+Honest simulation: clearly identify browser-stored data and simulated claim review; do not imply real campus verification.
+4. Goals, Non-Goals, and Success Measures
+4.1 Goals
+Provide a single interface for browsing Lost Items and Found Items.
+Allow users to filter by the required categories and search by keyword and campus location.
+Allow users to submit an item report with the required item name, location, date, and contact information.
+Provide a coherent demonstration of item details, claim requests, and report tracking, aligned with the PDF reference.
+Persist demonstration data across page refreshes on the same browser profile.
+4.2 Non-Goals
+No server, database, API, cloud storage, or cross-device synchronization.
+No real login, institutional identity verification, or role-based access control.
+No actual email, SMS, or push notifications.
+No real staff moderation, automated ownership verification, or physical item handoff scheduling.
+No production guarantee that LocalStorage protects personal information.
+4.3 Success Measures
+Measure
+Acceptance target
+Core navigation
+A user can switch between Lost Items and Found Items without a page reload.
+Category filtering
+Selecting any required category shows only items in that category; All Categories restores the full current tab.
+Search and location
+Keyword search updates while typing; location filtering can be combined with search and category selection.
+Required report fields
+A report cannot be submitted without item name, location, date, and contact information.
+Persistence
+A newly submitted report remains visible after refreshing the same browser session/profile.
+Responsive usability
+The main browsing and reporting tasks work at desktop, tablet, and mobile viewport widths without horizontal overflow.
+
+5. Users and Primary Use Cases
+User / role
+Need
+Primary tasks
+Student who lost an item
+Find an item that someone may have reported as found, or publish a lost report.
+Browse Found Items, search by keyword/location, inspect details, submit a lost report.
+Student who found an item
+Make the item visible to its owner and provide a way to arrange a safe return.
+Publish a found report, provide item/location/date details, review a claim request in the demo.
+Student claiming an item
+Show that a found item is theirs without exposing sensitive information publicly.
+Open a found-item detail view, submit a private identifying detail, view claim status.
+Project evaluator / demonstrator
+Verify that all required interactions work and that the interface follows the visual reference.
+Try tabs, filters, search, reporting, detail view, claim flow, LocalStorage, and responsive layout.
+
+6. Scope and Feature Priorities
+Priority
+Feature
+Scope definition
+P0 - CORE
+Lost / Found tabs
+Two-tab interface to switch between Lost Items and Found Items.
+P0 - CORE
+Category filters
+Electronics, ID Cards, Books/Notes, Keys, and Personal Accessories.
+P0 - CORE
+Item reporting form
+Capture Item Name, Location Last Seen, Date, and Contact Info. The form also captures report type and category so the board can classify entries.
+P0 - CORE
+Live search
+Search by item keyword and campus location; allow combined filters.
+P1 - REFERENCE-ALIGNED
+Item details and claim request
+Detail view for a selected listing and a claim form with an ownership-identifying detail.
+P1 - REFERENCE-ALIGNED
+My Reports
+Browser-local view of reports and claim requests associated with the entered email/profile.
+P1 - REFERENCE-ALIGNED
+Photo support
+Optional item photo and preview; keep uploads within the reference guideline of JPG/PNG up to 5 MB.
+P1 - REFERENCE-ALIGNED
+How it works, FAQ, privacy guidance
+Informational sections modeled on the Group 1 PDF.
+P1 - QUALITY
+Responsive layout and accessible controls
+Usable mobile navigation, keyboard-friendly controls, clear labels, and visible focus states.
+
+7. Functional Requirements
+ID
+Requirement
+Acceptance criteria
+FR-01 (CORE)
+Lost / Found tabs
+The board displays two clearly labeled tabs. Selecting a tab changes the active item type and active visual state. Counts update from the current item dataset.
+FR-02 (CORE)
+Category filter
+The filter offers Electronics, ID Cards, Books/Notes, Keys, and Personal Accessories. Selecting a category filters the active tab. An All Categories option resets this filter. “Other” may be included as an optional extension.
+FR-03 (CORE)
+Item reporting form
+The user can choose Lost or Found and submit an item name, location, date, and contact information. Missing or invalid required values prevent submission and show field-level feedback.
+FR-04 (CORE)
+Live keyword and location search
+Keyword search filters listings while the user types. Campus location can be selected independently and combined with the keyword and category filters. A clear action resets filters.
+FR-05 (REFERENCE-ALIGNED)
+Item details
+Selecting a card opens a detail view containing name, image if available, category, description, location, date, report ID, type, and status. Contact information is not displayed in the public detail view.
+FR-06 (REFERENCE-ALIGNED)
+Claim request
+A found-item detail view provides a Claim This Item action. The form requires claimant name, campus email/contact, and a unique identifying detail. Submission creates a pending claim record and confirmation message.
+FR-07 (REFERENCE-ALIGNED)
+My Reports
+A user can enter/select their campus email and see locally stored reports and claims associated with that exact email. Records can be opened; own reports can be deleted with confirmation.
+FR-08 (REFERENCE-ALIGNED)
+Status display
+Listings and My Reports show clear status labels. New lost reports default to Still Looking; new found reports default to Ready to Claim; new claims default to Pending Verification.
+FR-09 (REFERENCE-ALIGNED)
+Image upload
+The report form accepts optional JPG/JPEG/PNG up to 5 MB, displays a preview, and handles unsupported files or storage errors gracefully.
+FR-10 (REFERENCE-ALIGNED)
+How it works / FAQ / privacy
+Provide a three-step process explanation, expandable FAQ items, and safe-return guidance. These sections are informational and do not imply automated verification.
+FR-11 (QUALITY)
+Feedback states
+Show success/error notifications and useful empty states, including no search results and no reports for the selected email.
+
+8. User Journeys
+8.1 Find an Item
+Open Browse Items and select Found Items.
+Enter an item keyword and optionally choose a campus location and category.
+Review matching cards and open a relevant item detail view.
+If the item appears to be theirs, submit a claim with a distinctive identifying detail.
+See a confirmation and find the request in My Reports.
+8.2 Report a Lost or Found Item
+Select Report an Item.
+Choose I Lost an Item or I Found an Item.
+Enter item name, category, location, date, and contact information; optionally add a description, specific spot, and image.
+Review validation messages and submit.
+See the generated report ID and success confirmation; the listing appears in the appropriate board tab.
+8.3 Track a Report or Claim
+Open My Reports and enter the same email used when submitting.
+Review matching lost reports, found reports, and claims.
+Open a record to inspect its details and current status.
+Delete a locally created report only after confirming the action.
+9. Data, Content, and Business Rules
+Every item record has a unique report ID and one type: Lost or Found.
+Required item fields are item name, category, campus location, date, and contact information. The four mandatory fields explicitly listed by the Excel brief are item name, location last seen, date, and contact information.
+For a Found report, the location label is “Location Found”; for a Lost report, it is “Location Last Seen”.
+Dates are stored in ISO format (YYYY-MM-DD) and displayed in a human-friendly local format.
+A newly created Lost report uses “Still Looking”; a newly created Found report uses “Ready to Claim”.
+A claim starts in “Pending Verification”. Approval, rejection, and returned states may be represented for demonstration, but the frontend does not perform real verification.
+Public cards and item detail views must not reveal contact email or phone. Contact details remain only in browser storage and My Reports UI.
+Seed examples are loaded only on first launch when no item dataset exists. Existing user data must not be overwritten during later page loads.
+Suggested sample campus locations from the visual reference: Uni Mall, Main Library, Student Welfare, Science Hall, Recreation Center, and Arts Building. Treat these as configurable demonstration content.
+The PDF shows Lovely Professional University branding and [configure official campus contact email] as example content; these must be replaceable and must not be presented as verified institutional contact information.
+10. Non-Functional Requirements
+Area
+Requirement
+Responsive design
+Support desktop, tablet, and mobile layouts. No horizontal page overflow at common viewport widths.
+Usability
+Use clear labels, visible active states, helpful empty states, and concise field-level validation.
+Accessibility
+Use semantic landmarks, associated labels, keyboard-operable controls, visible focus styles, sufficient contrast, and dialog focus management.
+Performance
+Render a modest seeded dataset quickly; avoid unnecessary DOM updates and large unoptimized images.
+Reliability
+Handle absent, malformed, or quota-exceeded LocalStorage values without crashing the page.
+Compatibility
+Target current evergreen desktop and mobile browsers with support for HTML5, CSS3, ES6 JavaScript, and LocalStorage.
+Privacy and safety
+Do not publish contact data in listings. Warn that LocalStorage is not encrypted or access-controlled and that this is not suitable for real sensitive information.
+Maintainability
+Keep markup, styling, data, and interaction logic organized and consistently named.
+
+11. Out of Scope and Known Limitations
+One browser profile is the data boundary. Different students and devices do not see the same reports.
+The application cannot verify that an email belongs to a campus member.
+The application cannot send emails or notifications. Any “we will email you” wording in the PDF should be adapted to a local on-screen confirmation in this implementation.
+The application cannot securely keep records private from another person using the same browser profile or from someone inspecting browser storage.
+Claims cannot be approved by real campus staff because there is no staff account or backend workflow.
+Uploaded photos are stored locally in the browser only; they are not uploaded to a shared repository.
+Deployment note  Run from a local static web server during development or demonstration if needed by the browser. This is only static-file hosting; no application backend is introduced.
+
+12. Acceptance Checklist and Traceability
+Excel core requirement
+Mapped feature IDs
+Demonstration check
+Dual-tab switch between Lost Items and Found Items
+FR-01
+Switch tabs; verify correct records and counts appear.
+Category filter for five specified categories
+FR-02
+Select each required category and verify results.
+Item form with Item Name, Location Last Seen, Date, Contact Info
+FR-03
+Attempt empty submission, then submit valid Lost and Found records.
+Live search by keyword and campus location
+FR-04
+Type a keyword, choose a location, combine filters, and clear them.
+
+13. Assumptions and Decisions Requiring Confirmation
+The current project is a frontend-only academic demonstrator, not a production campus service.
+Campus email is the preferred contact format because it matches the visual reference; if the instructor requires a different contact format, adjust validation without changing the required Contact Info field.
+The design uses Lovely Professional University as replaceable sample branding because it appears in the PDF. Confirm the actual institution name before final submission.
+The PDF visual sheet contains multiple screens; this PRD treats the detailed report/claim/dashboard/FAQ sections as aligned enhancements, not as additional formal requirements from the spreadsheet.
+14. Reference Materials
+1. Web-Projects-List - K2P26LP.xlsx — sheet “50 Projects”, row 2, “Campus Lost and Found Management System”.
+2. Group 1.pdf — page 1 visual reference sheet, showing desktop and mobile examples of browse, reporting, item detail, claim, My Reports, how-it-works, privacy, and FAQ views.

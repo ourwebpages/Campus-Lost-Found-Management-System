@@ -1,0 +1,424 @@
+
+PROJECT NO. 02  /  LOVELY PROFESSIONAL UNIVERSITY
+Campus Lost & Found
+Technical Specification
+
+Document
+Technical Specification
+Project
+Campus Lost and Found Management System
+Version
+1.0
+Prepared
+12 November 2026
+Implementation constraint
+HTML5, CSS3, Vanilla JavaScript only; no libraries or backend
+Primary source
+Web-Projects-List - K2P26LP.xlsx, Project No. 2
+Design reference
+Group 1.pdf, page 1 visual reference sheet
+
+Document intent
+This document translates the assigned project brief and its visual reference into a buildable, testable frontend project. It separates the assignment’s explicit requirements from recommended interface enhancements and records the limits of a browser-only demonstration.
+
+1. Technical Overview
+This specification defines the implementation approach for the Campus Lost and Found frontend. The application is a static, single-page-style website built with semantic HTML5, CSS3, and Vanilla JavaScript. Browser LocalStorage provides persistence for demonstration data.
+Non-negotiable constraint  Do not use a JavaScript framework, CSS framework, component library, utility library, backend, database, external API, package manager, or third-party runtime dependency.
+
+2. Technology Stack and Runtime
+Layer
+Technology
+Use
+Structure
+HTML5
+Semantic page sections, forms, buttons, dialogs, navigation, and accessible labels.
+Presentation
+CSS3
+Custom properties, Flexbox, Grid, media queries, responsive cards, dialogs, focus states, and transitions.
+Behavior
+Vanilla JavaScript (ES6+)
+State management, event handling, filtering, validation, rendering, report creation, claims, and LocalStorage operations.
+Persistence
+Browser LocalStorage
+Store item records, claim requests, and selected local profile email as JSON.
+Image preview
+Native File API + Canvas (optional optimization)
+Preview JPG/PNG files and optionally resize/compress before storing a data URL.
+
+No build step is required. The application should run as static files. Use a local static-file server during development when browser module or storage-origin behavior requires it; the server must not implement application logic.
+3. Proposed Project Structure
+Path
+Responsibility
+campus-lost-and-found/
+Project root.
+index.html
+Single-page application shell, semantic sections, dialogs, forms, navigation, and script/style references.
+css/style.css
+Design tokens, base styles, header/footer, hero, filter bar, item cards, forms, modal, dashboard, FAQ, responsive breakpoints.
+js/script.js
+All JavaScript behavior, organized into clearly separated functions or internal namespaces.
+assets/images/
+Local sample photos and illustrations used by seed data; provide fallback placeholders if no photo exists.
+README.txt or README.md (recommended)
+Run instructions, limitations, and reset-demo-data instructions.
+
+Simplicity decision  A single JavaScript entry file is sufficient for this project. If the code grows, it may be split into native JavaScript files, but do not introduce a bundler or package dependency.
+
+4. Application Architecture
+4.1 Logical Layers
+Layer
+Responsibilities
+View / DOM
+Renders page sections, item cards, counts, filter states, forms, notifications, and dialogs.
+Application state
+Holds current tab, search text, selected category/location, current detail item, active local profile email, and loaded records.
+Domain logic
+Applies filters, validates inputs, creates report/claim records, calculates statuses, and enforces field rules.
+Persistence adapter
+Loads, parses, saves, and safely removes JSON values from LocalStorage.
+Seed data
+Supplies example listings when the browser has no existing item dataset.
+
+4.2 Data Flow
+On startup, read versioned LocalStorage keys and validate parsed data shapes.
+If no item dataset exists, create the sample item collection once and persist it.
+Initialize the in-memory application state from the loaded records.
+Render the board and attach delegated event listeners.
+When the user changes a filter, derive visible records from state and re-render the results area.
+When the user submits a report or claim, validate the form, create a record, update state, persist it, and update the relevant views.
+5. Data Model
+5.1 Item Record
+Field
+Type
+Required
+Description / rule
+id
+string
+Yes
+Unique report ID, e.g. L-2026-0001 or F-2026-0001. Use a collision-resistant suffix or timestamp/random component.
+type
+string enum
+Yes
+lost | found.
+itemName
+string
+Yes
+Trim whitespace; reject empty values.
+category
+string enum
+Yes
+Electronics | ID Cards | Books/Notes | Keys | Personal Accessories. “Other” is optional.
+description
+string
+No
+Short description; enforce a reasonable maximum length, e.g. 500 characters.
+location
+string
+Yes
+Campus location/building, used by location filter.
+specificSpot
+string
+No
+Room, floor, table, landmark, or more precise spot.
+itemDate
+string (ISO date)
+Yes
+Date lost or found; do not accept a future date in the standard flow.
+contactEmail
+string
+Yes
+Validated email/contact value. Never render publicly on board cards or public detail view.
+imageDataUrl
+string or null
+No
+Locally stored image data URL after validation/optional compression.
+status
+string enum
+Yes
+lost: still_looking | matched | returned; found: ready_to_claim | claimed | returned.
+createdAt
+string (ISO datetime)
+Yes
+Timestamp when report was created.
+updatedAt
+string (ISO datetime)
+Yes
+Timestamp of last local update.
+isSample
+boolean
+Yes
+True for seeded sample data; false for user-created reports.
+
+5.2 Claim Record
+Field
+Type
+Required
+Description / rule
+id
+string
+Yes
+Unique claim request ID, e.g. C-2026-0001.
+itemId
+string
+Yes
+ID of the found item being claimed.
+claimantName
+string
+Yes
+Name entered by claimant.
+claimantEmail
+string
+Yes
+Validated email/contact; used to associate the claim with My Reports.
+identifyingDetail
+string
+Yes
+Private detail supplied to help distinguish the true owner.
+proofDescription
+string
+No
+Optional proof description. Avoid storing sensitive identity documents.
+status
+string enum
+Yes
+pending_verification | approved | rejected | returned. New claim defaults to pending_verification.
+createdAt
+string (ISO datetime)
+Yes
+Creation timestamp.
+updatedAt
+string (ISO datetime)
+Yes
+Last update timestamp.
+
+5.3 Local Profile Record
+Store only the current demo email identifier used to filter My Reports. This is not authentication. A user can change it and it does not protect records from another person using the same browser profile.
+6. LocalStorage Specification
+Key
+Stored value
+Behavior
+clf.items.v1
+JSON array of Item records
+Read on startup; seed only when key is absent or has no valid dataset; update after report creation/deletion.
+clf.claims.v1
+JSON array of Claim records
+Read on startup; append on claim submission; update only through explicit demo behavior if implemented.
+clf.profile.v1
+JSON object containing currentEmail
+Used only to filter the My Reports screen locally.
+
+Wrap JSON.parse and JSON.stringify operations in try/catch.
+Validate expected arrays and required fields before accepting stored data.
+If stored JSON is malformed, show a recoverable message and offer a “Reset demo data” action rather than crashing.
+Do not overwrite valid user-created data during normal initialization.
+Handle quota errors when saving images or records; show an actionable error and allow the user to retry without the image.
+Provide a clearly labeled reset option for the demonstration that removes only the application keys listed above.
+7. UI and Interaction Specification
+UI region
+Implementation behavior
+Navigation
+Anchor/section navigation for Browse Items, My Reports, How It Works, and Report an Item. Mobile menu opens/closes with a button and aria-expanded state.
+Hero
+Headline, short supporting text, primary actions, and derived Lost / Found counts.
+Board tabs
+Button-based tab controls. Store activeTab in state and set aria-selected/active style accordingly.
+Filters
+Keyword input, category control, location control, and Clear Filters button. Filters combine with AND logic.
+Item cards
+Render only visible items. Each card includes type/status, image or fallback, name, category, location, date, and View Details action.
+Details dialog
+Show selected item information. For found items, expose Claim This Item. Close with close button, Escape, and backdrop only if implemented accessibly.
+Report form
+Type selector (Lost/Found), item name, category, location, date, contact, optional description/specific spot/photo, validation, draft/save behavior if included.
+Claim form
+Collect name, email/contact, identifying detail, optional proof description; create pending claim and confirmation.
+My Reports
+Filter local item and claim records by exact email match; show empty state when none match.
+FAQ
+Accessible accordion; button toggles aria-expanded and associated answer visibility.
+Notifications
+Use a reusable toast/status region with role=status or aria-live=polite.
+
+8. Filtering and Search Logic
+Create one pure filtering function that receives the full item array and current filter state. Apply filters in a predictable sequence: active tab, category, location, then keyword. Search should be case-insensitive and trim leading/trailing whitespace.
+Keyword fields: itemName and description; optionally include specificSpot if useful, but do not search private contact information.
+Location field: exact selected campus location or an “All locations” option. If free-text location search is chosen instead of a dropdown, match case-insensitively against location and specificSpot.
+Category field: exact enum match or All Categories.
+Clear Filters resets keyword, category, and location while retaining the currently selected Lost/Found tab.
+Display a result count and a clear no-results state.
+9. Form Validation and Submission Rules
+9.1 Item Report
+Field
+Validation
+Report type
+Required; only Lost or Found.
+Item name
+Required after trimming; max 100 characters recommended.
+Category
+Required; one of the configured categories.
+Location
+Required; choose or enter a campus location.
+Date
+Required valid date; no future date in the standard flow.
+Contact info
+Required; validate email format if campus email is selected as the supported format.
+Description / specific spot
+Optional; trim whitespace and enforce max lengths.
+Photo
+Optional; only JPG/JPEG/PNG, maximum 5 MB before compression.
+
+9.2 Claim Request
+Only found items in a claimable state should offer Claim This Item.
+Name, contact/email, and identifying detail are required.
+A claim submission creates a new unique claim ID and starts in pending_verification.
+After submission, display the claim ID and local confirmation; do not say that an email was sent or that ownership was verified.
+9.3 Image Handling
+Validate both MIME type and filename extension; do not trust extension alone.
+Display a local preview before submission.
+Recommended: use a Canvas to resize the longest edge to approximately 1200 px and encode a compressed JPEG for LocalStorage.
+Keep the original input limit at 5 MB as shown in the design reference. If saving still exceeds LocalStorage quota, offer a retry without the image.
+Provide meaningful alt text for item images or empty alt text for decorative images.
+10. JavaScript Function Design
+Function / module responsibility
+Purpose
+initApp()
+Load stored data, seed when required, initialize state, bind listeners, render initial UI.
+loadFromStorage(key, fallback)
+Safely read and parse JSON from LocalStorage.
+saveToStorage(key, value)
+Safely serialize and persist data; return success/failure.
+seedSampleItems()
+Create the initial sample dataset only when no valid item dataset exists.
+createUniqueId(prefix)
+Create a unique local report/claim identifier.
+getVisibleItems(items, filters)
+Pure function applying active tab, category, location, and keyword filters.
+renderItemCards(items)
+Build the item card list using safe DOM APIs.
+openItemDetails(itemId) / closeItemDetails()
+Open and close the selected item detail dialog.
+validateReportForm(formData)
+Return field-level validation errors for an item report.
+handleReportSubmit(formData)
+Validate, create item record, persist, update state, and show confirmation.
+validateClaimForm(formData)
+Validate claimant contact and identifying detail.
+handleClaimSubmit(formData)
+Create claim record, persist it, update My Reports, and show confirmation.
+renderMyReports(email)
+Render item and claim records associated with the selected local email.
+deleteOwnReport(itemId, email)
+Delete a user-created report only after confirmation and email match; never delete seed records unless reset is intended.
+showToast(message, type)
+Announce success or error feedback accessibly.
+escapeHtml(value) or safe DOM creation
+Prevent user-provided text from being interpreted as markup. Prefer textContent and createElement.
+
+11. Security, Privacy, and Data Handling
+Do not use innerHTML with untrusted user-entered strings. Prefer createElement and textContent; if templating is unavoidable, escape all user-provided values.
+Do not display contactEmail on public item cards or public item details.
+LocalStorage is accessible to scripts running on the same origin and to people with access to the browser profile. It is not encrypted, authenticated, or appropriate for sensitive personal data.
+Do not request or store student ID numbers, passwords, government IDs, payment details, or photos of sensitive documents.
+Do not claim that campus emails are verified. Email syntax validation is not identity verification.
+No network requests should be made by the application. User data stays in the local browser unless the hosting environment itself provides unrelated static-file access.
+12. Visual Design and Responsive Rules
+Token / pattern
+Specification
+Primary color
+Forest green #174C3C for primary actions, headings, and active controls.
+Secondary surface
+Soft green #E8F0E9 for selected filters, callouts, and subtle backgrounds.
+Page background
+Warm off-white #F8F8F3; card surfaces white.
+Body text
+Dark charcoal #252A27; muted text in a subdued green-gray.
+Layout
+CSS Grid for item listings; Flexbox for navigation, toolbars, and compact rows.
+Cards
+Consistent image ratio, status badge, readable metadata, subtle border/shadow, and visible hover/focus state.
+Breakpoints
+Suggested: 1024 px, 768 px, and 480 px. Adjust based on content fit, not device names alone.
+Mobile
+Collapse navigation, stack form fields, use full-width controls, reduce card columns, and maintain comfortable tap targets.
+
+Use the Group 1 PDF as a visual reference for the page composition and overall feel. The PDF’s “Lovely Professional University” name, sample email, counts, sample dates, and example items are demonstration content and should be easy to replace.
+13. Error Handling and Empty States
+No results: explain that no items match and provide Clear Filters.
+No reports: prompt the user to submit a lost or found report.
+Invalid form: show field-level messages and focus the first invalid field.
+Storage read failure: load a safe empty/sample state and explain that browser storage could not be read.
+Storage write/quota failure: preserve form values, show an error, and offer retry without optional image data.
+Missing image: use a local fallback visual; never show a broken image icon.
+Deleted report: require confirmation and show a success message after persistence succeeds.
+14. Testing Strategy
+Test ID
+Test scenario
+Expected result
+T-01
+First launch with empty LocalStorage
+Sample listings are loaded once; tabs and counts display.
+T-02
+Refresh after adding a report
+The new report remains available in the same browser profile.
+T-03
+Switch Lost / Found tabs
+Only the selected type is shown and active tab state is correct.
+T-04
+Select each required category
+Only matching category records remain visible.
+T-05
+Search by item keyword
+Results update while typing, case-insensitively.
+T-06
+Combine keyword, category, and location
+Only records meeting all selected filters remain.
+T-07
+Clear filters
+Keyword/category/location reset; active tab remains selected.
+T-08
+Submit report without required fields
+Submission is blocked and actionable validation is shown.
+T-09
+Submit valid Lost and Found records
+Unique IDs are created; correct type/status appears; records persist.
+T-10
+Upload invalid or over-5-MB image
+Upload is rejected with a clear message.
+T-11
+Submit claim with missing identifying detail
+Submission is blocked.
+T-12
+Submit valid claim
+Claim ID is generated, status is Pending Verification, and confirmation appears.
+T-13
+Open My Reports using matching email
+Only matching local records are listed.
+T-14
+Use different email in My Reports
+No unrelated records are displayed in that view.
+T-15
+Simulate malformed LocalStorage JSON
+Application does not crash; recovery/reset guidance appears.
+T-16
+Test 1440 px, 768 px, and 375 px viewport widths
+No horizontal overflow; navigation, cards, forms, and dialogs remain usable.
+T-17
+Keyboard-only interaction
+Navigation, tabs, forms, dialogs, accordion, and buttons can be operated with keyboard.
+
+15. Definition of Done
+All four Excel core requirements are implemented and pass their acceptance checks.
+The reference-aligned screens and interactions included in scope are functional, not static mockups.
+No prohibited framework or library is present in source files.
+All user-generated values are rendered safely and contact information is hidden from public listing views.
+LocalStorage initialization, persistence, malformed-data handling, and reset behavior are tested.
+The site is responsive, keyboard-usable, and free of obvious console errors during the test checklist.
+README explains how to run the static site and clearly states browser-only limitations.
+16. Implementation Notes and Open Decisions
+The campus name and contact email must be treated as configurable sample content unless the project owner supplies official values.
+The source spreadsheet does not prescribe the exact campus location list, report ID format, statuses, or image compression behavior; those details are implementation decisions documented here.
+The PDF shows an image upload hint of JPG or PNG up to 5 MB; this is used as the recommended upload limit.
+No actual claim-review interface is mandated by the Excel row. If one is added for demonstration, it must be clearly labeled as simulated and must not imply a real staff workflow.
+17. Source References
+1. Web-Projects-List - K2P26LP.xlsx — sheet “50 Projects”, row 2, “Campus Lost and Found Management System”; source for the problem, objective, and four core functional requirements.
+2. Group 1.pdf — page 1 visual reference sheet; source for the suggested visual treatment and additional reference-aligned screens and content.
